@@ -15,8 +15,8 @@ There are two files that I have designed to help you test the functionality of t
 Things to do
 ============
 I will give a list of things that need to be done below:
-1) The file zeitcoindb.py holds the class that does all the database function.  I need this file to be check for SQL-Injection issues
-2) Need to run the testing programs and walk through each command and make sure the commands are working correctly.
-3) Need to test out the forth like scripting language used to verify transaction and make sure the scripting language is working correctly.
+* The file zeitcoindb.py holds the class that does all the database function.  I need this file to be check for SQL-Injection issues
+* Need to run the testing programs and walk through each command and make sure the commands are working correctly.
+* Need to test out the forth like scripting language used to verify transaction and make sure the scripting language is working correctly.
 
-* I will add more to this to do list when I have more time
+* Note: I will add more to this to do list when I have more time
