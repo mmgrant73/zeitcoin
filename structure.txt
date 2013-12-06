@@ -1,0 +1,21 @@
+Design structure of the Zeitcoin software:
+
+Zeitcoin - is a peer to peer digital currency.  It uses a distributed hash table (modified version of kamilla) 
+to location other peers.  This network uses the amp protocol to communicate with other peers and JSON-RPC 
+to externallly communicate with the wallet.  It uses SQLLite for the database.
+
+Program Core:
+1) zeitcoinamp.py - This file has four classes.  The zeit class which handles all the amp protocol communication between peers.  The clientcommand class which handles sending an amp command to another peer.  The guidedtour class which handles the guided tour protocol for the proof-of-work.  The controller class which handles timed events such as pinging other peers and updating transaction.
+2) zeitcoindb.py - This file has one class hashtable that handles all the databaseb (SQLLite) functions
+3) zeitcoinforth.py - This file is an implementation of the forth programming language used in scripting transaction
+4) zeitcoinjsonrpc.py - This file has one class that handles JSON-RPC  communication for the walletr
+5) zeitcointrans.py - This file has one class Transactions which handles all transaction like functions
+6) zeitcoinutility.py - This file has three classes.  The Utility class which does different random function that supports the other classes.  The encryption class which handles all the encryption function.  The logfile class that handles login events to the logfile.
+
+Wallet:
+1) zeitcoinwallet.py - This is the GUI wallet that a person will use to communicate with the network
+
+Testing:
+1) zeitnetwork.py - This is a command line testing program that allows you to create and test the network
+2) zeitpeer.py - Is a strip down wallet that is used by the testing programs to test the network
+3) zeitnetgui.py - This is a GUI version of the command line testing program to tes the network.
