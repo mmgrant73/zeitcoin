@@ -1,0 +1,45 @@
+Database structure for the Zeitcoin network.
+
+The Zeitcoin wallet will use SQLLite database to store transaction and other information peretaining to this program.  It will consist of two databases: transdaction.db which will hold the raw transaction blocks for all transaction on the netwok ans the zietcoin.db which will hold information pertaining to a specific wallet such as GUID, its local hashtable, etc.  Below will show the structure of the two databases.
+
+Database: Zeitcoin.db - 
+1)Table: hashtable (guid text, address text, port integer, flag integer, time real) - Will hold information of peers connected the network.  This table will be use to locate peers.
+	Columns:
+	guid - will be the unque id for a peer
+	address - http address for the peer
+	port - will be the port number for the peer
+	flag - will be use to determine if the peer is active or inactive on the network
+	time - will be a timestamp of the last activity of that peer
+2) Table: localtrans (txid text, thash text, addresswallet text, addressother text, amount integer, type text, time real) - Will hold information on transactiom that is only pertaining to this wallet
+	Columns:
+	txid - Transaction hash ID 
+	thash - Transaction scripting
+	addresswallet - Address of the zeitcoin wallet involed in the transaction
+	otheraddress - The other address that is involvec with this transaction
+	amount - The amount of zeitcoins in this transaction
+	type - Tells rather the transaction was sent or received
+	time - Timestamp of the transaction
+3)Table: Accounts (address text, privkey text, pubkey text, account text, time real) - This table hold all the accounts for this wallet
+	Columns:
+	address - Address of this account
+	account - The name of this account
+	privkey - The private key for this account
+	pubkey - The public key for this account
+	time - Timestamp that shows when this account was created
+4)Table: leader (sharedkeys text, address text, port integer, guid text, time real) - This table will hold tempory data on the tour guides when it is in leader mode.
+	Columna:
+	sharedkeys - The public key of the tour guide
+	address - The http address of the tour guide
+	port - The port of the tour guide
+	guid - The guid of the tour guide
+	time - Timestamp this tour guide was created
+
+Database: Transactions
+1) Table: blocktrans (txid text, thash text, time real)
+	Columns:
+	txid - Transaction hash ID 
+	thash - Transaction scripting
+	time - Timestamp of the transaction
+
+Note:When backing up your wallet.  Zeitcoin.db is the one you need to backup and secure.  If this is lost you will lose all coins associated with this wallet.  The transaction.db is common to all wallets on the network and can be downloaded again.
+
